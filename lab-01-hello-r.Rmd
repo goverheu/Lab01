@@ -20,49 +20,38 @@ data("datasaurus_dozen")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+There are three columns and 1,846 rows in the data set.
 
 ### Exercise 2
 
-The answers for this exercise are already provided to help guide you. Clean up the narrative to reflect what you want to submit. Let’s break it into steps:
-
-First, let's plot the data in the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 
-ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
-  geom_point()
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) + geom_point()
 ```
 
-Next, let's calculate the correlation between `x` and `y` in this dataset:
 
 ```{r cor-dino}
 dino_data %>%
   summarize(r = cor(x, y))
 ```
-Once you’ve cleaned up the text, add your own explanation or observations here!
-
+An r-value of -0.06 indicates a very weak negative linear correlation between x and y.
 
 ### Exercise 3
 
-This is your turn to write the code and narrative for the star dataset. Follow the same steps as above to complete the analysis. Don't forget to label your chunks appropriately!
-
-Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient.
-To finish, clean up the narrative by removing these instructions.
-
 ```{r plot-star}
-
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
 ```
 
-I'm some filler text, you should replace me with more meaningful text...
 
 ```{r cor-star}
-
+star_data %>%
+  summarize(r = cor(x, y))
 ```
-Add your explanation here—what did you notice?
-
+The correlation coefficients for the dino and star data sets are practically the same with values of -0.064 and -0.063, respectively. With that said, both exhibit very weak negative linear relationships between x and y.
 
 ### Exercise 4
 
